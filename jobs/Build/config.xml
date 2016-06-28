@@ -58,7 +58,7 @@ ls</command>
       <profileName>stelligentlabs</profileName>
       <entries>
         <hudson.plugins.s3.Entry>
-          <bucket>bsjartifacts</bucket>
+          <bucket>devops-ness-artifacts</bucket>
           <sourceFile>target/deployment/brewery.war</sourceFile>
         </hudson.plugins.s3.Entry>
       </entries>
