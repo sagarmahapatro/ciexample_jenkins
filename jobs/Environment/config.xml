@@ -9,27 +9,27 @@
         <hudson.model.StringParameterDefinition>
           <name>STACK_NAME</name>
           <description></description>
-          <defaultValue>cd00</defaultValue>
+          <defaultValue>target</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>PrivateBucket</name>
           <description></description>
-          <defaultValue>cd00</defaultValue>
+          <defaultValue>devops-ness-creds</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>PublicBucket</name>
           <description></description>
-          <defaultValue>cd00</defaultValue>
+          <defaultValue>devops-ness-artifacts</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>KeyName</name>
           <description></description>
-          <defaultValue>cd00</defaultValue>
+          <defaultValue>devop-sag</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@1.1.16">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -68,7 +68,7 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers class="vector"/>
+  <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
@@ -83,7 +83,7 @@ ruby /usr/share/tomcat6/scripts/aws/load_domain.rb ${STACK_NAME}</command>
   </builders>
   <publishers/>
   <buildWrappers>
-    <com.syncapse.jenkinsci.plugins.awscloudformationwrapper.CloudFormationBuildWrapper>
+    <com.syncapse.jenkinsci.plugins.awscloudformationwrapper.CloudFormationBuildWrapper plugin="jenkins-cloudformation-plugin@0.9">
       <stacks>
         <com.syncapse.jenkinsci.plugins.awscloudformationwrapper.StackBean>
           <stackName>${STACK_NAME}</stackName>
