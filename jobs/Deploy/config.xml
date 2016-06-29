@@ -59,6 +59,7 @@
     <hudson.tasks.Shell>
       <command>echo ${STACK_NAME}
 cd software/deployment/
+pwd
 cap deploy:setup
 ls
 pwd</command>
